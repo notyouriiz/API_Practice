@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Paris",
+        "description": "The City of Light, known for its art, fashion, and landmarks like the Eiffel Tower.",
+        "image": "asset/paris.jpg",
+        "price_per_pax": 1200,
+        "accommodation": "3 nights at Hotel Paris"
+    },
+    {
+        "id": 2,
+        "name": "New York",
+        "description": "The Big Apple, famous for its skyline, Broadway shows, and Central Park.",
+        "image": "asset/NYC.jpg",
+        "price_per_pax": 1500,
+        "accommodation": "4 nights at Times Square Hotel"
+    },
+    {
+        "id": 3,
+        "name": "Tokyo",
+        "description": "A bustling metropolis blending modern skyscrapers with traditional temples.",
+        "image": "asset/tokyo.jpg",
+        "price_per_pax": 1300,
+        "accommodation": "5 nights at Shinjuku Hotel"
+    },
+    {
+        "id": 4,
+        "name": "Sydney",
+        "description": "Known for its Sydney Opera House, Harbour Bridge, and stunning beaches.",
+        "image": "asset/sydney.jpg",
+        "price_per_pax": 1400,
+        "accommodation": "4 nights at Sydney Harbour Hotel"
+    },
+    {
+        "id": 5,
+        "name": "Rome",
+        "description": "A historic city with ancient ruins, such as the Colosseum and the Roman Forum.",
+        "image": "asset/rome.jpg",
+        "price_per_pax": 1100,
+        "accommodation": "3 nights at Rome Central Hotel"
+    },
+    {
+        "id": 6,
+        "name": "London",
+        "description": "Home to landmarks like the British Museum, the Tower of London, and Buckingham Palace.",
+        "image": "asset/london.jpg",
+        "price_per_pax": 1600,
+        "accommodation": "5 nights at London Bridge Hotel"
+    },
+    {
+        "id": 7,
+        "name": "Dubai",
+        "description": "Famous for its modern architecture, luxury shopping, and vibrant nightlife.",
+        "image": "asset/dubai.jpg",
+        "price_per_pax": 1700,
+        "accommodation": "4 nights at Dubai Marina Hotel"
+    },
+    {
+        "id": 8,
+        "name": "Cape Town",
+        "description": "Known for its harbor, Table Mountain, and Cape Point.",
+        "image": "asset/cape_town.jpg",
+        "price_per_pax": 900,
+        "accommodation": "5 nights at Cape Town Beach Hotel"
+    },
+    {
+        "id": 9,
+        "name": "Bali",
+        "description": "A vibrant city known for its street life, cultural landmarks, and astonishing beach.",
+        "image": "asset/bali.jpg",
+        "price_per_pax": 800,
+        "accommodation": "7 nights at Bali Resort"
+    }
+]
