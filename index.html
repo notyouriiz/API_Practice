@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Destinations</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+        .navbar {
+            background-color: #0C1844;
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff !important;
+        }
+        .nav-link:hover {
+            color: #FF6969 !important;
+        }
+        .form-label, .text-center {
+            color: #0C1844;
+        }
+        .form-control {
+            border: 2px solid #0C1844;
+        }
+        .btn-primary {
+            background-color: #0C1844;
+            border-color: #0C1844;
+        }
+        .btn-primary:hover {
+            background-color: #009600;
+            border-color: #009600;
+        }
+        .card {
+            border: 2px solid #0C1844;
+            background-color: #ffffff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .card-title {
+            color: #0C1844;
+        }
+        .card-text {
+            color: #0C1844;
+        }
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-price, .card-accommodation {
+            color: #000000;
+            font-weight: bold;
+        }
+        /* Custom styling for the calendar */
+        .col-md-3 {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 2px solid #0C1844;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .datepicker-dropdown {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .datepicker-dropdown table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .datepicker-dropdown table thead {
+            background-color: #0C1844;
+            color: #FFF5E1;
+            font-weight: bold;
+        }
+
+        .datepicker-dropdown table th,
+        .datepicker-dropdown table td {
+            text-align: center;
+            padding: 8px;
+            border: 1px solid #0C1844;
+        }
+
+        .datepicker-dropdown table tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .datepicker-dropdown .datepicker-switch {
+            color: #0C1844;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><b>Tour Destinations</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="welcome-message">
+        <h4>Welcome to Tour Destinations!</h4>
+        <p>Discover our exciting travel destinations and start planning your next adventure.</p>
+    </div>
+
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div id="calendar"></div>
+            </div>
+            <div class="col-md-9">
+                <h1 class="text-center mb-4">Tour Destinations</h1>
+                <div class="row" id="catalogue">
+                    <!-- Cards will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const apiUrl = 'https://mocki.io/v1/eaa3aec5-f452-403b-8425-1918deb9cc7a'; // Your actual Mocki.io API URL
+
+            $('#calendar').datepicker({
+                format: 'mm/dd/yyyy',
+                todayHighlight: true,
+                autoclose: true
+            });
+
+            $.getJSON(apiUrl, function(data) {
+                let cards = '';
+                data.forEach(item => {
+                    cards += `
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="${item.image}" class="card-img-top" alt="${item.name}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.name}</h5>
+                                    <p class="card-text">${item.description}</p>
+                                    <p class="card-price">$${item.price_per_pax} per pax</p>
+                                    <p class="card-accommodation">${item.accommodation}</p>
+                                    <a href="#" class="btn btn-primary">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                $('#catalogue').html(cards);
+            });
+        });
+    </script>
+</body>
+</html>
