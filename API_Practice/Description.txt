@@ -1,0 +1,2 @@
+in this folder will be include all file for developing a simple UI for website using Bootstrap adn calling an API
+the API is built with mocki.io from .json to url API and will be shown as arrays data called on Website
